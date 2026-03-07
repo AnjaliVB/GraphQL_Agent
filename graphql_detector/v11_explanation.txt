@@ -1,0 +1,75 @@
+Here is a detailed explanation of how the code works, broken down by its major components and logic flow.
+
+### **1. Overview & Workflow**
+The script operates in a logical pipeline to ensure efficiency:
+1.  **Input Check:** It first checks if the URL you provided is already a GraphQL endpoint. If yes, it skips discovery.
+2.  **Discovery (Optional):** If the input is just a domain (e.g., `example.com`), it uses Crawling and Brute-forcing to find the endpoint.
+3.  **Validation:** It double-checks every found endpoint to ensure it's a real GraphQL API and not a false positive.
+4.  **Vulnerability Scanning:** It runs a series of checks (Introspection, IDOR, Batching, etc.) and saves the results.
+
+---
+
+### **2. Key Components**
+
+#### **A. The `GraphQLScanner` Class**
+This is the core engine. It takes a confirmed URL and runs all security checks.
+
+*   **`check_introspection()`**:
+    *   **What it does:** Sends a special query (`__schema`) asking the server to describe itself.
+    *   **Why it matters:** If enabled, the server returns a map of every possible query, mutation, and data type.
+    *   **Feature:** It saves this map to a `.json` file on your computer. This is crucial for manual testing later. It also analyzes this map to find Queries that accept an `ID` (preparing for the IDOR check).
+
+*   **`check_auto_idor()`**:
+    *   **What it does:** This is the most complex part.
+    *   **Logic:**
+        1.  **Target Selection:** If Introspection worked, it looks at the schema for queries like `getUser(id: ...)`. If Introspection failed, it guesses common names like `user`, `node`, `post`.
+        2.  **Probing:** It tries to fetch data for common IDs (`"1"`, `"2"`, `"admin"`) without any login/password (Unauthenticated).
+        3.  **Data Extraction:** If the server responds with "Success" (HTTP 200 and data), it flags the vulnerability.
+        4.  **Deep Dive:** It then immediately sends a second query asking for specific fields (`email`, `username`, `password`, `token`) to prove what data was actually leaked.
+
+*   **`check_field_suggestion()`**:
+    *   Sends a query with a typo (`usernme` instead of `username`).
+    *   If the server replies "Did you mean `username`?", it helps hackers guess valid field names.
+
+*   **`check_batching()`**:
+    *   Sends an array of queries `[{query}, {query}, {query}]` in a single HTTP request.
+    *   If the server processes all of them, it indicates a potential Denial of Service (DoS) vulnerability, as an attacker can overload the server with 1000s of queries at once.
+
+#### **B. Discovery Functions**
+These functions are used if the input URL isn't a direct endpoint.
+
+*   **`crawl_website()`**: Acts like a web spider. It visits the start page, looks through the HTML code (scripts, links) for words like `graphql` or `api`, and follows internal links to find hidden endpoints.
+*   **`discover_endpoint_bruteforce()`**: Takes a list of known common paths (`/graphql`, `/v1/graphql`, `/api`) and tries them all rapidly using Python's `ThreadPoolExecutor` (multithreading).
+
+#### **C. Validation Functions**
+This is a two-step verification process to prevent false positives:
+
+1.  **`test_endpoint_loose()`**: Used during brute-forcing. It's fast and loose. It accepts any response that *looks* like GraphQL (based on keywords in the text).
+2.  **`validate_endpoint_strict()`**: Used *after* discovery. It demands a proper GraphQL structure (JSON with `data` or `errors` keys). It also identifies if an endpoint exists but is protected by Authentication (401/403 errors).
+
+---
+
+### **3. The "Smart Input" Logic (Main Execution)**
+
+The `if __name__ == "__main__":` block controls the flow:
+
+1.  **Optimization Check:**
+    ```python
+    is_valid, status = validate_endpoint_strict(target_input)
+    if is_valid:
+        # SKIP DISCOVERY
+    ```
+    This is the part you requested. If you paste a full GraphQL URL, it skips the crawling/brute-forcing phase entirely, saving time.
+
+2.  **Fallback:**
+    If the input isn't valid, it runs the discovery tools (`crawl_website`, `discover_endpoint_bruteforce`) and then filters the results through `validate_endpoint_strict`.
+
+3.  **Reporting:**
+    Finally, it instantiates the `GraphQLScanner` for every valid target found and prints a formatted report with Severity levels and the actual Exposed Data (leaked JSON).
+
+### **4. Key Libraries Used**
+*   **`requests`**: For making HTTP connections.
+*   **`concurrent.futures`**: For multithreaded brute-forcing (makes scanning much faster).
+*   **`urllib3`**: For handling URL parsing and disabling SSL warnings (which clutter the output).
+*   **`json`**: For parsing API responses and saving the schema.
+*   **`re` (Regex)**: Used by the crawler to find paths inside HTML/JavaScript code.

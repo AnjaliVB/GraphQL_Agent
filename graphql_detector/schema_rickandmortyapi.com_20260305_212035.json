@@ -1,0 +1,1009 @@
+{
+    "queryType": {
+        "name": "Query",
+        "fields": [
+            {
+                "name": "character",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "ID",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "characters",
+                "args": [
+                    {
+                        "name": "page",
+                        "type": {
+                            "name": "Int",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": {
+                            "name": "FilterCharacter",
+                            "kind": "INPUT_OBJECT",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "charactersByIds",
+                "args": [
+                    {
+                        "name": "ids",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": null,
+                                "kind": "LIST"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "location",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "ID",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "locations",
+                "args": [
+                    {
+                        "name": "page",
+                        "type": {
+                            "name": "Int",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": {
+                            "name": "FilterLocation",
+                            "kind": "INPUT_OBJECT",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "locationsByIds",
+                "args": [
+                    {
+                        "name": "ids",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": null,
+                                "kind": "LIST"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "episode",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "ID",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "episodes",
+                "args": [
+                    {
+                        "name": "page",
+                        "type": {
+                            "name": "Int",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": {
+                            "name": "FilterEpisode",
+                            "kind": "INPUT_OBJECT",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "episodesByIds",
+                "args": [
+                    {
+                        "name": "ids",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": null,
+                                "kind": "LIST"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "mutationType": null,
+    "types": [
+        {
+            "name": "Query",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "character",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Character",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "characters",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": {
+                                "name": "Int",
+                                "kind": "SCALAR"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "type": {
+                                "name": "FilterCharacter",
+                                "kind": "INPUT_OBJECT"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Characters",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "charactersByIds",
+                    "args": [
+                        {
+                            "name": "ids",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "location",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Location",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "locations",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": {
+                                "name": "Int",
+                                "kind": "SCALAR"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "type": {
+                                "name": "FilterLocation",
+                                "kind": "INPUT_OBJECT"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Locations",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "locationsByIds",
+                    "args": [
+                        {
+                            "name": "ids",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "episode",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Episode",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "episodes",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": {
+                                "name": "Int",
+                                "kind": "SCALAR"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "type": {
+                                "name": "FilterEpisode",
+                                "kind": "INPUT_OBJECT"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "Episodes",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "episodesByIds",
+                    "args": [
+                        {
+                            "name": "ids",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ID",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "Character",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "id",
+                    "args": [],
+                    "type": {
+                        "name": "ID",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "status",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "species",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "gender",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "origin",
+                    "args": [],
+                    "type": {
+                        "name": "Location",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "location",
+                    "args": [],
+                    "type": {
+                        "name": "Location",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "image",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "episode",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "created",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "String",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "Location",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "id",
+                    "args": [],
+                    "type": {
+                        "name": "ID",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "dimension",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "residents",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "created",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Episode",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "id",
+                    "args": [],
+                    "type": {
+                        "name": "ID",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "air_date",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "episode",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "characters",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "created",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Int",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "FilterCharacter",
+            "kind": "INPUT_OBJECT",
+            "fields": null
+        },
+        {
+            "name": "Characters",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "info",
+                    "args": [],
+                    "type": {
+                        "name": "Info",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "results",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Info",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "count",
+                    "args": [],
+                    "type": {
+                        "name": "Int",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "pages",
+                    "args": [],
+                    "type": {
+                        "name": "Int",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "next",
+                    "args": [],
+                    "type": {
+                        "name": "Int",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "prev",
+                    "args": [],
+                    "type": {
+                        "name": "Int",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "FilterLocation",
+            "kind": "INPUT_OBJECT",
+            "fields": null
+        },
+        {
+            "name": "Locations",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "info",
+                    "args": [],
+                    "type": {
+                        "name": "Info",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "results",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "FilterEpisode",
+            "kind": "INPUT_OBJECT",
+            "fields": null
+        },
+        {
+            "name": "Episodes",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "info",
+                    "args": [],
+                    "type": {
+                        "name": "Info",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "results",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__Schema",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "types",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "queryType",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "mutationType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "subscriptionType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "directives",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__Type",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "kind",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "fields",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "interfaces",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "possibleTypes",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "enumValues",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "inputFields",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "ofType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__TypeKind",
+            "kind": "ENUM",
+            "fields": null
+        },
+        {
+            "name": "Boolean",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "__Field",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "args",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "isDeprecated",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "deprecationReason",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__InputValue",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "defaultValue",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__EnumValue",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "isDeprecated",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "deprecationReason",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__Directive",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "locations",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "args",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__DirectiveLocation",
+            "kind": "ENUM",
+            "fields": null
+        },
+        {
+            "name": "CacheControlScope",
+            "kind": "ENUM",
+            "fields": null
+        },
+        {
+            "name": "Upload",
+            "kind": "SCALAR",
+            "fields": null
+        }
+    ]
+}
