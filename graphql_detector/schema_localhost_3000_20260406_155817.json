@@ -1,0 +1,767 @@
+{
+    "queryType": {
+        "name": "Query",
+        "fields": [
+            {
+                "name": "getUsers",
+                "args": [
+                    {
+                        "name": "name",
+                        "type": {
+                            "name": "String",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "type": {
+                            "name": "ID",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "login",
+                "args": [
+                    {
+                        "name": "username",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "systemInfo",
+                "args": [
+                    {
+                        "name": "command",
+                        "type": {
+                            "name": "String",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "readFile",
+                "args": [
+                    {
+                        "name": "path",
+                        "type": {
+                            "name": "String",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "searchDirectory",
+                "args": [
+                    {
+                        "name": "query",
+                        "type": {
+                            "name": "String",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "searchUsersNoSQLi",
+                "args": [
+                    {
+                        "name": "query",
+                        "type": {
+                            "name": "String",
+                            "kind": "SCALAR",
+                            "ofType": null
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "mutationType": {
+        "name": "Mutation",
+        "fields": [
+            {
+                "name": "registerUser",
+                "args": [
+                    {
+                        "name": "input",
+                        "type": {
+                            "name": null,
+                            "kind": "NON_NULL",
+                            "ofType": {
+                                "name": "UserInput",
+                                "kind": "INPUT_OBJECT"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "types": [
+        {
+            "name": "User",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "userId",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "username",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "password",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "accountNo",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "balance",
+                    "args": [],
+                    "type": {
+                        "name": "Float",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ID",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "String",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "Float",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "DirectoryEntry",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "path",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "email",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "phone",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Query",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "getUsers",
+                    "args": [
+                        {
+                            "name": "name",
+                            "type": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        },
+                        {
+                            "name": "id",
+                            "type": {
+                                "name": "ID",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "username",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "User",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "systemInfo",
+                    "args": [
+                        {
+                            "name": "command",
+                            "type": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "readFile",
+                    "args": [
+                        {
+                            "name": "path",
+                            "type": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "searchDirectory",
+                    "args": [
+                        {
+                            "name": "query",
+                            "type": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "searchUsersNoSQLi",
+                    "args": [
+                        {
+                            "name": "query",
+                            "type": {
+                                "name": "String",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Mutation",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "registerUser",
+                    "args": [
+                        {
+                            "name": "input",
+                            "type": {
+                                "name": null,
+                                "kind": "NON_NULL"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": "User",
+                        "kind": "OBJECT"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "UserInput",
+            "kind": "INPUT_OBJECT",
+            "fields": null
+        },
+        {
+            "name": "Boolean",
+            "kind": "SCALAR",
+            "fields": null
+        },
+        {
+            "name": "__Schema",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "types",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "queryType",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "mutationType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "subscriptionType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                },
+                {
+                    "name": "directives",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__Type",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "kind",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "specifiedByUrl",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "fields",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "interfaces",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "possibleTypes",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "enumValues",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "inputFields",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "LIST"
+                    }
+                },
+                {
+                    "name": "ofType",
+                    "args": [],
+                    "type": {
+                        "name": "__Type",
+                        "kind": "OBJECT"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__TypeKind",
+            "kind": "ENUM",
+            "fields": null
+        },
+        {
+            "name": "__Field",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "args",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "isDeprecated",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "deprecationReason",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__InputValue",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "type",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "defaultValue",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "isDeprecated",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "deprecationReason",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__EnumValue",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "isDeprecated",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "deprecationReason",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__Directive",
+            "kind": "OBJECT",
+            "fields": [
+                {
+                    "name": "name",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "description",
+                    "args": [],
+                    "type": {
+                        "name": "String",
+                        "kind": "SCALAR"
+                    }
+                },
+                {
+                    "name": "isRepeatable",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "locations",
+                    "args": [],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                },
+                {
+                    "name": "args",
+                    "args": [
+                        {
+                            "name": "includeDeprecated",
+                            "type": {
+                                "name": "Boolean",
+                                "kind": "SCALAR"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "name": null,
+                        "kind": "NON_NULL"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "__DirectiveLocation",
+            "kind": "ENUM",
+            "fields": null
+        }
+    ]
+}
