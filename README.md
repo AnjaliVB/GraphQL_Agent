@@ -65,4 +65,4 @@ Interactive Prompt:
 </ul>
 
 <h3>📊 Example Output</h3>
-<img src="">
+<img src="https://github.com/user-attachments/assets/0177548f-70ba-48aa-b430-557af97665b0" >
